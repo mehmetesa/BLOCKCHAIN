@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain - Educational Implementation</title>
+    <link rel="stylesheet" href="web_interface.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔗 Blockchain Explorer</h1>
+            <p class="subtitle">Educational blockchain implementation from scratch</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-label">Toplam Blok</div>
+                <div class="stat-value" id="total-blocks">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Bekleyen Transaction</div>
+                <div class="stat-value" id="pending-txs">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Mining Zorluğu</div>
+                <div class="stat-value" id="difficulty">4</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Durum</div>
+                <div class="stat-value" id="status">✅ Geçerli</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <section class="card">
+                    <h2>Yeni Transaction</h2>
+                    <form id="transaction-form">
+                        <div class="form-group">
+                            <label>Gönderen Adres</label>
+                            <input type="text" id="sender" placeholder="Örn: Alice" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Alıcı Adres</label>
+                            <input type="text" id="receiver" placeholder="Örn: Bob" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Miktar</label>
+                            <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Transaction Ekle</button>
+                    </form>
+                </section>
+
+                <section class="card">
+                    <h2>Bekleyen Transaction'lar</h2>
+                    <div id="pending-transactions" class="transaction-list">
+                        <p class="empty-message">Bekleyen transaction yok</p>
+                    </div>
+                    <button id="mine-btn" class="btn btn-success" disabled>Block Mine Et</button>
+                </section>
+
+                <section class="card">
+                    <h2>Bakiye Sorgula</h2>
+                    <div class="form-group">
+                        <input type="text" id="balance-address" placeholder="Adres girin">
+                        <button id="check-balance-btn" class="btn btn-secondary">Sorgula</button>
+                    </div>
+                    <div id="balance-result" class="balance-result"></div>
+                </section>
+            </div>
+
+            <div class="right-panel">
+                <section class="card">
+                    <h2>Blockchain</h2>
+                    <div id="blockchain-view" class="blockchain-view">
+                        <p class="empty-message">Blockchain yükleniyor...</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="mining-simulation" id="mining-simulation" style="display: none;">
+            <div class="mining-overlay">
+                <div class="mining-content">
+                    <h2>⛏️ Mining İşlemi</h2>
+                    <div class="mining-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <p id="mining-status">Mining başlatılıyor...</p>
+                        <p id="mining-nonce">Nonce: 0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="web_interface.js"></script>
+</body>
+</html>
+
