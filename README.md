@@ -121,12 +121,6 @@ gerekir.
 
 Bu proje eğitim amaçlıdır ve açık kaynak kodludur.
 
-## 👥 Katkıda Bulunanlar
-
-- Esat
-- Meb
-- Emir
-
 ## 🔗 Kaynaklar
 
 - [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf)
